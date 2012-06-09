@@ -15,10 +15,15 @@ public class HelloServlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServletOutputStream out = response.getOutputStream();
-        
-        out.write("Hello Heroku".getBytes());
-        out.flush();
+
+        putMessage("Hello", response);
     }
     
+    private void putMessage(String requestMessage, HttpServletResponse response) throws ServletException, IOException {
+        ServletOutputStream out = response.getOutputStream();
+        
+        String replyMessage = requestMessage + ",shimosuk";
+        out.write(replyMessage.getBytes());
+        out.flush();
+    }
 }
