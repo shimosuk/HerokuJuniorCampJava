@@ -18,7 +18,7 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Greeting greeting = new Greeting("Hello");
+        Greeting greeting = new Greeting(request.getPathInfo());
         putMessage(greeting.reply(), response);
     }
     
