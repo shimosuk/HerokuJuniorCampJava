@@ -10,18 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.model.Greeting;
+
 public class HelloServlet extends HttpServlet {
 
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        putMessage("Hello", response);
+        Greeting greeting = new Greeting("Hello");
+        putMessage(greeting.reply(), response);
     }
     
     private void putMessage(String requestMessage, HttpServletResponse response) throws ServletException, IOException {
         ServletOutputStream out = response.getOutputStream();
-        
+
         String replyMessage = requestMessage + ",shimosuk";
         out.write(replyMessage.getBytes());
         out.flush();
