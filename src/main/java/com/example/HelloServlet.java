@@ -16,10 +16,15 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Greeting greeting = new Greeting(request.getPathInfo());
+        String requestMessage = removeBackslash(request.getPathInfo());
+        Greeting greeting = new Greeting(requestMessage);
         putMessage(greeting.reply(), response);
     }
     
+    private String removeBackslash(String requestMessage) throws ServletException, IOException {
+        return requestMessage.replaceAll("/","");
+    }
+
     private void putMessage(String requestMessage, HttpServletResponse response) throws ServletException, IOException {
         ServletOutputStream out = response.getOutputStream();
 
