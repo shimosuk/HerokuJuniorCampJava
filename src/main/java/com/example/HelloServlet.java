@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,8 @@ public class HelloServlet extends HttpServlet {
     }
     
     private String removeBackslash(String requestMessage) throws ServletException, IOException {
-        return requestMessage.replaceAll("/","");
+        String[] request = requestMessage.split("/");
+        return request[1];
     }
 
     private void putMessage(String requestMessage, HttpServletResponse response) throws ServletException, IOException {
