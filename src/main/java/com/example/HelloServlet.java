@@ -19,7 +19,7 @@ public class HelloServlet extends HttpServlet {
 
         String requestMessage = removeBackslash(request.getPathInfo());
         Greeting greeting = new Greeting(requestMessage);
-        putMessage(greeting.reply(), response);
+        putMessage(greeting.iSay(), response);
     }
     
     private String removeBackslash(String requestMessage) throws ServletException, IOException {
@@ -30,7 +30,7 @@ public class HelloServlet extends HttpServlet {
     private void putMessage(String requestMessage, HttpServletResponse response) throws ServletException, IOException {
         ServletOutputStream out = response.getOutputStream();
 
-        String replyMessage = requestMessage + ",shimosuk";
+        String replyMessage = "I say " + requestMessage;
         out.write(replyMessage.getBytes());
         out.flush();
     }
