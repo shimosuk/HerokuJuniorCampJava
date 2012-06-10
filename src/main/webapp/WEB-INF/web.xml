@@ -10,13 +10,13 @@
     </welcome-file-list>
     
   <servlet>
-    <servlet-name>hello</servlet-name>
+    <servlet-name>john-lennon</servlet-name>
     <servlet-class>com.example.HelloServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/greeting/*</url-pattern>
+    <servlet-name>john-lennon</servlet-name>
+    <url-pattern>/HelloGoodbye/YouSay/*</url-pattern>
   </servlet-mapping>
 
 

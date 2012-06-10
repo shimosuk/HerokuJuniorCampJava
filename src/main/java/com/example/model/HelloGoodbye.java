@@ -3,11 +3,11 @@ package com.example.model;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Greeting {
+public class HelloGoodbye {
     private String youSay;
     private Map<String, String> sing;
 
-    public Greeting(String youSay){
+    public HelloGoodbye(String youSay){
         this.youSay = youSay;
         this.sing = sing();
     }

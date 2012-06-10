@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.model.Greeting;
+import com.example.model.HelloGoodbye;
 
 public class HelloServlet extends HttpServlet {
 
@@ -18,8 +18,8 @@ public class HelloServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String requestMessage = removeBackslash(request.getPathInfo());
-        Greeting greeting = new Greeting(requestMessage);
-        putMessage(greeting.iSay(), response);
+        HelloGoodbye helloGoodbye = new HelloGoodbye(requestMessage);
+        putMessage(helloGoodbye.iSay(), response);
     }
     
     private String removeBackslash(String requestMessage) throws ServletException, IOException {
