@@ -17,7 +17,7 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String requestMessage = removeBackslash(request.getPathInfo());
+        String requestMessage = getMessage(request.getPathInfo());
         HelloGoodbye helloGoodbye = new HelloGoodbye(requestMessage);
         String reply = putMessage(helloGoodbye.iSay());
 
@@ -26,7 +26,7 @@ public class HelloServlet extends HttpServlet {
         dispatcher.forward( request, response );
     }
     
-    private String removeBackslash(String requestMessage){
+    private String getMessage(String requestMessage){
         String[] request = requestMessage.split("/");
         return request[1];
     }
