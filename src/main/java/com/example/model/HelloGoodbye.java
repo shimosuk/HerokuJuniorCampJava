@@ -13,7 +13,9 @@ public class HelloGoodbye {
     }
 
     public String iSay() {
-        return this.sing.get(youSay);
+        return this.sing.containsKey(youSay)
+               ? "I say " + this.sing.get(youSay)
+               : "";
     }
 
     private Map<String, String> sing() {

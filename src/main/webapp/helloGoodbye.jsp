@@ -1,3 +1,8 @@
+<%
+  String iSay = (String)request.getAttribute("request");
+  if (iSay == null)
+    iSay = "";
+%>
 <html>
   <head>
   </head>
@@ -11,5 +16,8 @@
       <a href="/HelloGoodbye/YouSay/high">you say high</a></br>
       <a href="/HelloGoodbye/YouSay/why">you say why</a></br>
     </p>
+
+    <p><%= iSay %></p>
+
   </body>
 </html>

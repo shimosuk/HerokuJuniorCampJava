@@ -4,10 +4,10 @@ import java.io.IOException;
 
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 
 import com.example.model.HelloGoodbye;
 
@@ -19,19 +19,19 @@ public class HelloServlet extends HttpServlet {
 
         String requestMessage = removeBackslash(request.getPathInfo());
         HelloGoodbye helloGoodbye = new HelloGoodbye(requestMessage);
-        putMessage(helloGoodbye.iSay(), response);
+        String reply = putMessage(helloGoodbye.iSay());
+
+        request.setAttribute("request", reply);
+        RequestDispatcher dispatcher = request.getRequestDispatcher( "/helloGoodbye.jsp" );
+        dispatcher.forward( request, response );
     }
     
-    private String removeBackslash(String requestMessage) throws ServletException, IOException {
+    private String removeBackslash(String requestMessage){
         String[] request = requestMessage.split("/");
         return request[1];
     }
 
-    private void putMessage(String requestMessage, HttpServletResponse response) throws ServletException, IOException {
-        ServletOutputStream out = response.getOutputStream();
-
-        String replyMessage = "I say " + requestMessage;
-        out.write(replyMessage.getBytes());
-        out.flush();
+    private String putMessage(String requestMessage) {
+        return  requestMessage;
     }
 }
