@@ -29,5 +29,4 @@
     <url-pattern>/HelloGoodbye/YouSay/*</url-pattern>
   </servlet-mapping>
 
-
 </web-app>
