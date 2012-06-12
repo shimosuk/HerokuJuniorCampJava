@@ -21,7 +21,7 @@
 
   <servlet-mapping>
     <servlet-name>hello-goodbye</servlet-name>
-    <url-pattern>/HelloGoodbye</url-pattern>
+    <url-pattern>/HelloGoodbye/*</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
